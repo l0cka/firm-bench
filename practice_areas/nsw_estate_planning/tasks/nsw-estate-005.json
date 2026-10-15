@@ -1,0 +1,48 @@
+{
+  "id": "nsw-estate-005",
+  "practice_area": "nsw_estate_planning",
+  "jurisdiction": "NSW",
+  "archetype": "joint_non_estate_assets",
+  "prompt": "Solicitor Omar Rahman acts for NSW client Sofia Jane Okonkwo of 7 Larkspur Avenue, Parramatta NSW 2150. Sheet IS-SYN-005 mentions a home 'held with partner' and 'super with REST' but does not state title form or binding death benefit nomination status. Assemble estate documents using Firm Estates Library (NSW) identifiers. Do not invent ownership.",
+  "inputs": [
+    {
+      "type": "instruction_sheet",
+      "id": "IS-SYN-005",
+      "home": "held with partner",
+      "super": "REST",
+      "title_form": "unknown"
+    }
+  ],
+  "expected_status_regex": "\\b(DRAFT READY FOR SOLICITOR REVIEW|PARTIAL DRAFT [\u2013-] UNRESOLVED ISSUES)\\b",
+  "must_include": [
+    {
+      "item": "Flags joint home / non-estate asset risk as cannot be determined where title form unknown",
+      "weight": 3
+    },
+    {
+      "item": "Flags superannuation death-benefit / nomination issues without inventing nomination status",
+      "weight": 3
+    },
+    {
+      "item": "Uses library precedent identifiers and solicitor-review markings",
+      "weight": 2
+    }
+  ],
+  "must_not": [
+    {
+      "item": "Invented joint tenancy, tenants in common shares, or binding nomination status",
+      "weight": 3
+    },
+    {
+      "item": "States documents are ready to sign",
+      "weight": 3
+    }
+  ],
+  "tools": [],
+  "provenance": [
+    "https://legislation.nsw.gov.au/view/html/inforce/current/act-2006-080",
+    "https://legislation.nsw.gov.au/view/html/inforce/current/act-1987-257",
+    "https://legislation.nsw.gov.au/view/html/inforce/current/act-2003-053"
+  ],
+  "author_notes": "Flag joint home + super; no invented ownership."
+}

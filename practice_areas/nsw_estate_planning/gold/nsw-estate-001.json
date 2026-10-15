@@ -1,0 +1,115 @@
+{
+  "id": "nsw-estate-001",
+  "hard_fail_triggers": [
+    {
+      "id": "ready_to_sign",
+      "description": "States a document is ready to sign, approved, or complete for execution",
+      "any_of": [
+        "ready to sign",
+        "approved for execution",
+        "\\bcomplete and final\\b"
+      ]
+    },
+    {
+      "id": "wrong_jurisdiction",
+      "description": "Applies a non-NSW estate regime as if it were NSW",
+      "any_of": [
+        "\\bQueensland Wills Act\\b",
+        "\\bVictorian Wills Act\\b",
+        "under Victoria law for this NSW"
+      ]
+    },
+    {
+      "id": "factual_invention",
+      "description": "Invented client facts not in instructions",
+      "any_of": [
+        "INVENTED_FACT_MARKER_DO_NOT_USE"
+      ]
+    },
+    {
+      "id": "both_spouses",
+      "description": "Drafts both spouses in one run",
+      "any_of": [
+        "drafts for both spouses",
+        "mirror wills for both"
+      ]
+    }
+  ],
+  "acceptable_answer_families": [
+    "single-client NSW will+EPOA+AEG with solicitor-review status"
+  ],
+  "prohibited_assumptions": [
+    "ready to sign",
+    "second client in same run"
+  ],
+  "required_escalations": [],
+  "instruction_truth": {
+    "client": "Ava Elise Hartwell",
+    "survivorship_period": "30 days",
+    "solicitor": "Priya Nair"
+  },
+  "adjudication": {
+    "include_matchers": [
+      {
+        "item": "Names approved precedent and playbook identifiers from Firm Estates Library (NSW)",
+        "any_of": [
+          "NSW-WILL-PREC-v9",
+          "NSW-PLAYBOOK-v7"
+        ]
+      },
+      {
+        "item": "Builds an instruction table with provenance for each factual field",
+        "any_of": [
+          "instruction table",
+          "provenance"
+        ]
+      },
+      {
+        "item": "Marks drafts DRAFT - SOLICITOR REVIEW REQUIRED and records drafting issues",
+        "any_of": [
+          "DRAFT - SOLICITOR REVIEW REQUIRED",
+          "drafting-issues"
+        ]
+      },
+      {
+        "item": "Names Priya Nair as responsible solicitor and keeps execution outside the workflow",
+        "any_of": [
+          "Priya Nair",
+          "execution.*outside"
+        ]
+      },
+      {
+        "item": "Assembles will, EPOA and AEG for the single named client",
+        "any_of": [
+          "\\bwill\\b",
+          "enduring power of attorney",
+          "enduring guardian"
+        ]
+      }
+    ],
+    "not_matchers": [
+      {
+        "item": "States that a document is approved, complete or ready to sign",
+        "any_of": [
+          "ready to sign",
+          "approved for execution"
+        ]
+      },
+      {
+        "item": "Drafts for any person other than Ava Elise Hartwell in this run",
+        "any_of": [
+          "also drafting for Jordan as testator",
+          "second client draft"
+        ]
+      },
+      {
+        "item": "Substitutes a generic will outside the approved precedent identifiers",
+        "any_of": [
+          "generic will template without library",
+          "from memory without precedent"
+        ]
+      }
+    ]
+  },
+  "licence_notes": "Synthetic facts. No AustLII bulk text."
+}

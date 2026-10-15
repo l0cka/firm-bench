@@ -1,0 +1,99 @@
+{
+  "id": "nsw-estate-003",
+  "hard_fail_triggers": [
+    {
+      "id": "ready_to_sign",
+      "description": "States a document is ready to sign, approved, or complete for execution",
+      "any_of": [
+        "ready to sign",
+        "approved for execution",
+        "\\bcomplete and final\\b"
+      ]
+    },
+    {
+      "id": "wrong_jurisdiction",
+      "description": "Applies a non-NSW estate regime as if it were NSW",
+      "any_of": [
+        "\\bQueensland Wills Act\\b",
+        "\\bVictorian Wills Act\\b",
+        "under Victoria law for this NSW"
+      ]
+    },
+    {
+      "id": "factual_invention",
+      "description": "Invented client facts not in instructions",
+      "any_of": [
+        "INVENTED_FACT_MARKER_DO_NOT_USE"
+      ]
+    },
+    {
+      "id": "invented_survivorship",
+      "description": "Invented survivorship period when sheet silent",
+      "any_of": [
+        "insert(?:ing|ed)? (?:a )?30-day survivorship",
+        "survivorship_period\\s*[:=]\\s*30",
+        "STANDARD_30_DAY_INSERTED"
+      ]
+    }
+  ],
+  "acceptable_answer_families": [
+    "silent survivorship + s 35 construction note"
+  ],
+  "prohibited_assumptions": [
+    "standard 30-day clause when sheet blank"
+  ],
+  "required_escalations": [
+    "solicitor decision on survivorship wording"
+  ],
+  "instruction_truth": {
+    "survivorship_period": "silent"
+  },
+  "adjudication": {
+    "include_matchers": [
+      {
+        "item": "Records survivorship_period as silent rather than inserting a period",
+        "any_of": [
+          "survivorship_period.*silent",
+          "recorded as silent"
+        ]
+      },
+      {
+        "item": "Notes Succession Act 2006 (NSW) s 35 only as a construction rule if the will is silent",
+        "any_of": [
+          "s\\s*35",
+          "Succession Act 2006"
+        ]
+      },
+      {
+        "item": "Names library precedent identifiers and solicitor-review status",
+        "any_of": [
+          "NSW-WILL-PREC-v9",
+          "SOLICITOR REVIEW"
+        ]
+      },
+      {
+        "item": "Instruction table marks blank survivorship as cannot be determined or silent",
+        "any_of": [
+          "cannot be determined",
+          "silent"
+        ]
+      }
+    ],
+    "not_matchers": [
+      {
+        "item": "Inserts a 30-day or any other survivorship period the instructions do not supply",
+        "any_of": [
+          "STANDARD_30_DAY_INSERTED",
+          "survivorship_period\\s*[:=]\\s*30 days"
+        ]
+      },
+      {
+        "item": "States that a document is ready to sign",
+        "any_of": [
+          "ready to sign"
+        ]
+      }
+    ]
+  },
+  "licence_notes": "Pin legislation.nsw.gov.au URL only; no Act text pasted."
+}

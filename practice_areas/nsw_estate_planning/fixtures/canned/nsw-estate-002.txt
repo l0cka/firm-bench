@@ -1,0 +1,16 @@
+STATUS: DRAFT READY FOR SOLICITOR REVIEW
+
+One client only in this run: Lena Marlowe. A separate run is required for Theo Marlowe.
+Responsible solicitor: Marcus Bell. Execution remains outside this workflow.
+
+Library: NSW-WILL-PREC-v9, NSW-EPOA-PREC-v5, NSW-EG-PREC-v4, NSW-PLAYBOOK-v7 (Firm Estates Library (NSW)).
+
+Instruction table:
+| field | value | provenance |
+| selected_client | Lena Marlowe | operator choice / one-client rule |
+| other_spouse | Theo Marlowe — separate run required | IS-SYN-002 |
+| executor | Theo Marlowe | IS-SYN-002 |
+| survivorship_period | cannot be determined | sheet silent |
+
+Will / EPOA / AEG drafts for Lena only — each marked DRAFT - SOLICITOR REVIEW REQUIRED.
+Drafting-issues register: confirm which spouse to process first; required solicitor decision: yes.

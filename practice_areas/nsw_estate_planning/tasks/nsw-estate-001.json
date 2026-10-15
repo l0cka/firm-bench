@@ -1,0 +1,72 @@
+{
+  "id": "nsw-estate-001",
+  "practice_area": "nsw_estate_planning",
+  "jurisdiction": "NSW",
+  "archetype": "baseline_assemble",
+  "prompt": "You are assisting solicitor Priya Nair on a NSW estate planning matter for one client only: Ava Elise Hartwell of 22 Cobalt Lane, Newcastle NSW 2300. Use mock library Firm Estates Library (NSW) with NSW-WILL-PREC-v9.docx, NSW-EPOA-PREC-v5.docx, NSW-EG-PREC-v4.docx and NSW-PLAYBOOK-v7.docx. Instructions are on sheet IS-SYN-001 pages 1-3 and interview notes dated 3 March 2026. Ava wants a will appointing her sibling Jordan Hartwell of 9 Maple Street, Hamilton NSW 2303 as sole executor, residue to Jordan, and an enduring power of attorney appointing Jordan commencing on loss of capacity, plus an appointment of enduring guardian appointing Jordan. Survivorship period is stated as 30 days on the sheet. Produce drafts for Ava only. Do not say the documents are ready to sign.",
+  "inputs": [
+    {
+      "type": "instruction_sheet",
+      "id": "IS-SYN-001",
+      "pages": "1-3"
+    },
+    {
+      "type": "interview",
+      "date": "2026-03-03"
+    },
+    {
+      "type": "library",
+      "name": "Firm Estates Library (NSW)",
+      "ids": [
+        "NSW-WILL-PREC-v9",
+        "NSW-EPOA-PREC-v5",
+        "NSW-EG-PREC-v4",
+        "NSW-PLAYBOOK-v7"
+      ]
+    }
+  ],
+  "expected_status_regex": "\\bDRAFT READY FOR SOLICITOR REVIEW\\b",
+  "must_include": [
+    {
+      "item": "Names approved precedent and playbook identifiers from Firm Estates Library (NSW)",
+      "weight": 2
+    },
+    {
+      "item": "Builds an instruction table with provenance for each factual field",
+      "weight": 3
+    },
+    {
+      "item": "Marks drafts DRAFT - SOLICITOR REVIEW REQUIRED and records drafting issues",
+      "weight": 3
+    },
+    {
+      "item": "Names Priya Nair as responsible solicitor and keeps execution outside the workflow",
+      "weight": 2
+    },
+    {
+      "item": "Assembles will, EPOA and AEG for the single named client",
+      "weight": 3
+    }
+  ],
+  "must_not": [
+    {
+      "item": "States that a document is approved, complete or ready to sign",
+      "weight": 3
+    },
+    {
+      "item": "Drafts for any person other than Ava Elise Hartwell in this run",
+      "weight": 3
+    },
+    {
+      "item": "Substitutes a generic will outside the approved precedent identifiers",
+      "weight": 3
+    }
+  ],
+  "tools": [],
+  "provenance": [
+    "https://legislation.nsw.gov.au/view/html/inforce/current/act-2006-080",
+    "https://legislation.nsw.gov.au/view/html/inforce/current/act-1987-257",
+    "https://legislation.nsw.gov.au/view/html/inforce/current/act-2003-053"
+  ],
+  "author_notes": "Baseline one-client assemble with an explicit 30-day survivorship on the sheet."
+}

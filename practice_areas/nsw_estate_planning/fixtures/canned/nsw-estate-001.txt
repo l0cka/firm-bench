@@ -1,0 +1,22 @@
+STATUS: DRAFT READY FOR SOLICITOR REVIEW
+
+Client (one only): Ava Elise Hartwell of 22 Cobalt Lane, Newcastle NSW 2300.
+Responsible solicitor: Priya Nair. Execution, witnessing and filing occur outside this workflow.
+
+Library sources used (copied, not rewritten): NSW-WILL-PREC-v9, NSW-EPOA-PREC-v5, NSW-EG-PREC-v4, NSW-PLAYBOOK-v7 from Firm Estates Library (NSW).
+
+Instruction table (provenance):
+| field | value | provenance |
+| client_name | Ava Elise Hartwell | IS-SYN-001 p1 |
+| executor | Jordan Hartwell | IS-SYN-001 p2 |
+| survivorship_period | 30 days | IS-SYN-001 p2 |
+| EPOA attorney | Jordan Hartwell | interview 2026-03-03 |
+| AEG guardian | Jordan Hartwell | interview 2026-03-03 |
+
+Draft set for Ava only:
+1. Will (NSW-WILL-PREC-v9) — DRAFT - SOLICITOR REVIEW REQUIRED
+2. Enduring power of attorney (NSW-EPOA-PREC-v5) — DRAFT - SOLICITOR REVIEW REQUIRED
+3. Appointment of enduring guardian (NSW-EG-PREC-v4) — DRAFT - SOLICITOR REVIEW REQUIRED
+
+Drafting-issues register:
+- document: will; location: attestation block; issue: solicitor to confirm witness logistics; provenance: playbook; required solicitor decision: yes

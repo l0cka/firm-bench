@@ -1,0 +1,13 @@
+STATUS: PARTIAL DRAFT – UNRESOLVED ISSUES
+
+Client: Sofia Jane Okonkwo. Solicitor: Omar Rahman.
+Library: NSW-WILL-PREC-v9, NSW-EPOA-PREC-v5, NSW-EG-PREC-v4, NSW-PLAYBOOK-v7.
+
+Instruction table:
+| field | value | provenance |
+| home | held with partner — title form cannot be determined | IS-SYN-005 |
+| jointly_held_asset_flag | yes / details cannot be determined | IS-SYN-005 |
+| super | REST — binding nomination status cannot be determined | IS-SYN-005 |
+
+Non-estate asset risks flagged: joint home may fall outside the will depending on title; superannuation death benefits depend on fund rules and nominations. No ownership form or nomination status invented.
+Will/EPOA/AEG shells — DRAFT - SOLICITOR REVIEW REQUIRED. Escalation: title search and super nomination confirmation.

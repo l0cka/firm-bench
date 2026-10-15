@@ -1,0 +1,103 @@
+{
+  "id": "nsw-estate-002",
+  "hard_fail_triggers": [
+    {
+      "id": "ready_to_sign",
+      "description": "States a document is ready to sign, approved, or complete for execution",
+      "any_of": [
+        "ready to sign",
+        "approved for execution",
+        "\\bcomplete and final\\b"
+      ]
+    },
+    {
+      "id": "wrong_jurisdiction",
+      "description": "Applies a non-NSW estate regime as if it were NSW",
+      "any_of": [
+        "\\bQueensland Wills Act\\b",
+        "\\bVictorian Wills Act\\b",
+        "under Victoria law for this NSW"
+      ]
+    },
+    {
+      "id": "factual_invention",
+      "description": "Invented client facts not in instructions",
+      "any_of": [
+        "INVENTED_FACT_MARKER_DO_NOT_USE"
+      ]
+    },
+    {
+      "id": "both_spouses_one_run",
+      "description": "Drafts both spouses in one run",
+      "any_of": [
+        "draft(?:s|ed|ing) for both (?:spouses|clients)",
+        "will for Lena[\\s\\S]{0,400}will for Theo",
+        "BOTH_SPOUSES_DRAFTED"
+      ]
+    }
+  ],
+  "acceptable_answer_families": [
+    "one spouse only + explicit separate-run notice"
+  ],
+  "prohibited_assumptions": [
+    "couple can be drafted in one pass"
+  ],
+  "required_escalations": [
+    "separate run for other spouse"
+  ],
+  "instruction_truth": {
+    "couple": [
+      "Lena Marlowe",
+      "Theo Marlowe"
+    ],
+    "one_client_rule": true
+  },
+  "adjudication": {
+    "include_matchers": [
+      {
+        "item": "Runs one client only and states a separate run is required for the other spouse",
+        "any_of": [
+          "one client only",
+          "separate run"
+        ]
+      },
+      {
+        "item": "Names approved library precedent identifiers",
+        "any_of": [
+          "NSW-WILL-PREC-v9",
+          "Firm Estates Library"
+        ]
+      },
+      {
+        "item": "Builds instruction table with provenance and cannot-be-determined where blank",
+        "any_of": [
+          "instruction table",
+          "cannot be determined"
+        ]
+      },
+      {
+        "item": "Keeps solicitor-review status; no ready-to-sign language",
+        "any_of": [
+          "SOLICITOR REVIEW",
+          "DRAFT READY FOR SOLICITOR REVIEW"
+        ]
+      }
+    ],
+    "not_matchers": [
+      {
+        "item": "Produces drafts for both spouses in the same run",
+        "any_of": [
+          "BOTH_SPOUSES_DRAFTED",
+          "will for Lena[\\s\\S]{0,400}will for Theo"
+        ]
+      },
+      {
+        "item": "States that a document is approved, complete or ready to sign",
+        "any_of": [
+          "ready to sign"
+        ]
+      }
+    ]
+  },
+  "licence_notes": "Synthetic couple trap."
+}

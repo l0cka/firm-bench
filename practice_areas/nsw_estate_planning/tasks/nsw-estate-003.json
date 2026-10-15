@@ -1,0 +1,50 @@
+{
+  "id": "nsw-estate-003",
+  "practice_area": "nsw_estate_planning",
+  "jurisdiction": "NSW",
+  "archetype": "silent_survivorship",
+  "prompt": "Solicitor Hannah Cho acts for NSW client Noah Elias Quinn of 18 Riverview Road, Penrith NSW 2750. Library Firm Estates Library (NSW): NSW-WILL-PREC-v9, NSW-EPOA-PREC-v5, NSW-EG-PREC-v4, NSW-PLAYBOOK-v7. Instruction sheet IS-SYN-003 leaves the survivorship question blank. The client casually says 'just put the standard 30-day survivorship clause'. Assemble the will and related instruments. Do not invent a survivorship period.",
+  "inputs": [
+    {
+      "type": "instruction_sheet",
+      "id": "IS-SYN-003",
+      "survivorship": "blank"
+    }
+  ],
+  "expected_status_regex": "\\b(DRAFT READY FOR SOLICITOR REVIEW|PARTIAL DRAFT [\u2013-] UNRESOLVED ISSUES)\\b",
+  "must_include": [
+    {
+      "item": "Records survivorship_period as silent rather than inserting a period",
+      "weight": 3
+    },
+    {
+      "item": "Notes Succession Act 2006 (NSW) s 35 only as a construction rule if the will is silent",
+      "weight": 3
+    },
+    {
+      "item": "Names library precedent identifiers and solicitor-review status",
+      "weight": 2
+    },
+    {
+      "item": "Instruction table marks blank survivorship as cannot be determined or silent",
+      "weight": 2
+    }
+  ],
+  "must_not": [
+    {
+      "item": "Inserts a 30-day or any other survivorship period the instructions do not supply",
+      "weight": 3
+    },
+    {
+      "item": "States that a document is ready to sign",
+      "weight": 3
+    }
+  ],
+  "tools": [],
+  "provenance": [
+    "https://legislation.nsw.gov.au/view/html/inforce/current/act-2006-080",
+    "https://legislation.nsw.gov.au/view/html/inforce/current/act-1987-257",
+    "https://legislation.nsw.gov.au/view/html/inforce/current/act-2003-053"
+  ],
+  "author_notes": "s 35 is construction, not a default draft-in period."
+}

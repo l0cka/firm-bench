@@ -1,0 +1,24 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: uv sync --all-extras
+      - name: Validate
+        run: uv run firm-bench validate
+      - name: Run canned + score
+        run: |
+          uv run firm-bench run --system canned --out results/ci-canned
+          uv run firm-bench score results/ci-canned
+      - name: Pytest
+        run: uv run pytest -q

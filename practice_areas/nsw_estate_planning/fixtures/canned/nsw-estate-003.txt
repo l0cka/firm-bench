@@ -1,0 +1,13 @@
+STATUS: PARTIAL DRAFT – UNRESOLVED ISSUES
+
+Client: Noah Elias Quinn. Solicitor: Hannah Cho. Library: NSW-WILL-PREC-v9, NSW-EPOA-PREC-v5, NSW-EG-PREC-v4, NSW-PLAYBOOK-v7.
+
+Instruction table:
+| field | value | provenance |
+| survivorship_period | silent / cannot be determined | IS-SYN-003 blank |
+| client request | 'standard 30-day' verbal — not adopted | interview |
+
+Survivorship is recorded as silent. Succession Act 2006 (NSW) s 35 is noted only as a construction rule that may apply if the will is silent; it is not drafted in as a period.
+See https://legislation.nsw.gov.au/view/html/inforce/current/act-2006-080
+
+Will draft — DRAFT - SOLICITOR REVIEW REQUIRED. Drafting-issues register: solicitor must decide whether to leave silence or take fresh instructions on a period.

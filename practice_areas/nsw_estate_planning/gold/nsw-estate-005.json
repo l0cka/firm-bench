@@ -1,0 +1,96 @@
+{
+  "id": "nsw-estate-005",
+  "hard_fail_triggers": [
+    {
+      "id": "ready_to_sign",
+      "description": "States a document is ready to sign, approved, or complete for execution",
+      "any_of": [
+        "ready to sign",
+        "approved for execution",
+        "\\bcomplete and final\\b"
+      ]
+    },
+    {
+      "id": "wrong_jurisdiction",
+      "description": "Applies a non-NSW estate regime as if it were NSW",
+      "any_of": [
+        "\\bQueensland Wills Act\\b",
+        "\\bVictorian Wills Act\\b",
+        "under Victoria law for this NSW"
+      ]
+    },
+    {
+      "id": "factual_invention",
+      "description": "Invented client facts not in instructions",
+      "any_of": [
+        "INVENTED_FACT_MARKER_DO_NOT_USE"
+      ]
+    },
+    {
+      "id": "invented_ownership",
+      "description": "Invented ownership or nomination facts",
+      "any_of": [
+        "joint tenants as a fact",
+        "binding death benefit nomination is in place",
+        "INVENTED_OWNERSHIP"
+      ]
+    }
+  ],
+  "acceptable_answer_families": [
+    "flag cannot-be-determined for title and super nomination"
+  ],
+  "prohibited_assumptions": [
+    "assume joint tenancy",
+    "assume binding nomination"
+  ],
+  "required_escalations": [
+    "title search / super nomination confirmation"
+  ],
+  "instruction_truth": {
+    "home_title_form": "unknown",
+    "super_nomination": "unknown"
+  },
+  "adjudication": {
+    "include_matchers": [
+      {
+        "item": "Flags joint home / non-estate asset risk as cannot be determined where title form unknown",
+        "any_of": [
+          "joint",
+          "non-estate",
+          "cannot be determined"
+        ]
+      },
+      {
+        "item": "Flags superannuation death-benefit / nomination issues without inventing nomination status",
+        "any_of": [
+          "super",
+          "nomination",
+          "cannot be determined"
+        ]
+      },
+      {
+        "item": "Uses library precedent identifiers and solicitor-review markings",
+        "any_of": [
+          "NSW-WILL-PREC-v9",
+          "SOLICITOR REVIEW"
+        ]
+      }
+    ],
+    "not_matchers": [
+      {
+        "item": "Invented joint tenancy, tenants in common shares, or binding nomination status",
+        "any_of": [
+          "INVENTED_OWNERSHIP",
+          "binding death benefit nomination is in place"
+        ]
+      },
+      {
+        "item": "States documents are ready to sign",
+        "any_of": [
+          "ready to sign"
+        ]
+      }
+    ]
+  },
+  "licence_notes": "Synthetic assets; no real titles."
+}
